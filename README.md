@@ -31,17 +31,25 @@ Visi veikėjai automatiškai išsaugomi faile data/characters.csv.
 2. Analizė
 Šiame skyriuje paaiškinama, kaip programa įgyvendina funkcinius reikalavimus ir OOP principus.
  2.1 Funkcinių reikalavimų įgyvendinimas
+
 Veikėjo kūrimas
+
 Veikėjai kuriami naudojant Factory Method dizaino šabloną:
 character = CharacterFactory.create_character(name, char_class, history)
+
 Statistikos redagavimas
+
 Statistika saugoma atskiroje klasėje:
 stats.update("STR", 15)
+
 Inventoriaus valdymas
+
 Inventorius realizuotas kompozicijos principu:
 self.inventory = Inventory()
 self.inventory.add_item("Sword")
+
 Gebėjimai
+
 Gebėjimai yra atskiri objektai, pridedami prie veikėjo:
 self.abilities.append(Ability("Fireball", "Magic attack", 30))
 Failų skaitymas ir rašymas
@@ -78,10 +86,9 @@ Sudėtinga logika paslėpta už paprastų metodų:
 •	CharacterFactory.create_character() paslepia objektų kūrimą
 •	Stats.update() paslepia atributų tikrinimą
 
-
  2.3 Kompozicija ir agregacija
 
-Kompozicija
+ Kompozicija
 
 Veikėjas turi statistiką ir inventorių:
 self.stats = Stats()
@@ -94,8 +101,11 @@ Gebėjimai egzistuoja atskirai, bet gali būti priskirti veikėjui:
 self.abilities.append(ability)
  
  2.4 Dizaino šablonas – Factory Method
+ 
 Programoje naudojamas Factory Method šablonas veikėjų kūrimui.
+
 Kodėl pasirinktas šis šablonas?
+
 •	leidžia centralizuoti veikėjų kūrimą
 •	palengvina programos plėtrą
 •	atskiria kūrimo logiką nuo pagrindinio kodo
