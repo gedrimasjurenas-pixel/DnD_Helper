@@ -5,13 +5,23 @@
 Pasirinkta tema – Dungeons and Dragons (DND) Helper, tai yra įrankis, skirtas kurti ir valdyti DND veikėjus.
 
 Kas yra ši programa?
-Programa – tai konsolinė DND veikėjų valdymo sistema. Ji leidžia:
+
+Programa – tai konsolinė DND veikėjų valdymo sistema. 
+
+Ji leidžia:
+
 •	kurti naujus veikėjus
+
 •	redaguoti veikėjų atributus
+
 •	keisti statistiką (STR, DEX, CON, INT, WIS, CHA)
+
 •	tvarkyti inventorių
+
 •	pridėti gebėjimus
+
 •	išsaugoti veikėjus faile
+
 •	įkelti veikėjus iš failo
 
 Kaip paleisti programą?
@@ -75,15 +85,20 @@ Nors šiame projekte nėra sudėtingos paveldėjimo hierarchijos, klasės sukurt
 4. Polimorfizmas
 
 Factory Method leidžia grąžinti skirtingų tipų veikėjus:
+
 def create_character(...):
-    return Character(...)
+
+return Character(...)
 Ateityje metodas galėtų grąžinti skirtingas veikėjų klases.
 
  4. Abstrakcija
 
 Sudėtinga logika paslėpta už paprastų metodų:
+
 •	Storage.save_character() paslepia CSV logiką
+
 •	CharacterFactory.create_character() paslepia objektų kūrimą
+
 •	Stats.update() paslepia atributų tikrinimą
 
  2.3 Kompozicija ir agregacija
@@ -91,13 +106,17 @@ Sudėtinga logika paslėpta už paprastų metodų:
  Kompozicija
 
 Veikėjas turi statistiką ir inventorių:
+
 self.stats = Stats()
+
 self.inventory = Inventory()
+
 Šie objektai neegzistuoja be veikėjo.
 
 Agregacija
 
 Gebėjimai egzistuoja atskirai, bet gali būti priskirti veikėjui:
+
 self.abilities.append(ability)
  
  2.4 Dizaino šablonas – Factory Method
@@ -107,7 +126,9 @@ Programoje naudojamas Factory Method šablonas veikėjų kūrimui.
 Kodėl pasirinktas šis šablonas?
 
 •	leidžia centralizuoti veikėjų kūrimą
+
 •	palengvina programos plėtrą
+
 •	atskiria kūrimo logiką nuo pagrindinio kodo
 
 Pavyzdys:
@@ -131,9 +152,13 @@ reader = csv.reader(f)
  2.6 Testavimas
 
 Vienetiniai testai tikrina:
+
 •	veikėjo sveikatos logiką
+
 •	statistikos atnaujinimą
+
 •	inventoriaus veikimą
+
 Pavyzdys:
 def test_damage(self):
     c = Character("Test", "Mage", "None")
@@ -143,15 +168,24 @@ def test_damage(self):
 3. Rezultatai
 
 •	Factory Method dizaino šablonas padidina lankstumą ir plėtrumą.
+
 •	CSV failų naudojimas leidžia išsaugoti veikėjų duomenis.
+
 •	Vienetiniai testai užtikrina pagrindinių funkcijų stabilumą.
+
 •	Projekto struktūra aiški, modulinė ir atitinka PEP8 stilių.
+
 5. Išvados
+
 Šiame kursiniame darbe sukurta DND Helper programa sėkmingai demonstruoja objektinio programavimo principus ir gerąsias programų architektūros praktikas.
 Programa yra funkcionali, lengvai plečiama ir tinkama tolesniam vystymui.
+
 Galimos ateities plėtros kryptys:
+
 •	grafinė vartotojo sąsaja (GUI)
+
 •	JSON ar duomenų bazės palaikymas
+
 •	veikėjų klasių hierarchija (Wizard, Fighter ir kt.)
 •	kovų simuliatorius
 •	burtų sistema
