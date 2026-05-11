@@ -51,21 +51,28 @@ Veikėjai įkeliami naudojant tą patį fabriką:
 characters.append(CharacterFactory.create_character(name, char_class, history))
 
  2.2 OOP principai
+ 
  1. Inkapsuliacija
 Atributai apsaugoti naudojant @property:
 @property
 def name(self):
     return self._name
- 2. Paveldėjimas
+ 
+ 3. Paveldėjimas
+
 Nors šiame projekte nėra sudėtingos paveldėjimo hierarchijos, klasės sukurtos taip, kad būtų galima lengvai plėsti:
 •	Stats galėtų būti paveldima į RaceStats, ClassStats
 •	Character galėtų turėti potipius: Wizard, Fighter, Rogue
-•	 3. Polimorfizmas
+
+4. Polimorfizmas
+
 Factory Method leidžia grąžinti skirtingų tipų veikėjus:
 def create_character(...):
     return Character(...)
 Ateityje metodas galėtų grąžinti skirtingas veikėjų klases.
+
  4. Abstrakcija
+
 Sudėtinga logika paslėpta už paprastų metodų:
 •	Storage.save_character() paslepia CSV logiką
 •	CharacterFactory.create_character() paslepia objektų kūrimą
@@ -73,12 +80,14 @@ Sudėtinga logika paslėpta už paprastų metodų:
 
 
  2.3 Kompozicija ir agregacija
+
 Kompozicija
 
 Veikėjas turi statistiką ir inventorių:
 self.stats = Stats()
 self.inventory = Inventory()
 Šie objektai neegzistuoja be veikėjo.
+
 Agregacija
 
 Gebėjimai egzistuoja atskirai, bet gali būti priskirti veikėjui:
@@ -99,7 +108,9 @@ class CharacterFactory:
         return Character(name, char_class, history)
 
 2.5 Darbas su failais
+
 Programa naudoja CSV formatą.
+
 Išsaugojimas:
 with open(Storage.FILE, "a", newline="") as f:
     writer = csv.writer(f)
@@ -108,6 +119,7 @@ with open(Storage.FILE, "a", newline="") as f:
 reader = csv.reader(f)
  
  2.6 Testavimas
+
 Vienetiniai testai tikrina:
 •	veikėjo sveikatos logiką
 •	statistikos atnaujinimą
@@ -119,11 +131,12 @@ def test_damage(self):
     self.assertEqual(c.health, 5)
 
 3. Rezultatai
+
 •	Factory Method dizaino šablonas padidina lankstumą ir plėtrumą.
 •	CSV failų naudojimas leidžia išsaugoti veikėjų duomenis.
 •	Vienetiniai testai užtikrina pagrindinių funkcijų stabilumą.
 •	Projekto struktūra aiški, modulinė ir atitinka PEP8 stilių.
-4. Išvados
+5. Išvados
 Šiame kursiniame darbe sukurta DND Helper programa sėkmingai demonstruoja objektinio programavimo principus ir gerąsias programų architektūros praktikas.
 Programa yra funkcionali, lengvai plečiama ir tinkama tolesniam vystymui.
 Galimos ateities plėtros kryptys:
