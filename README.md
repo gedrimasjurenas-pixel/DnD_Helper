@@ -74,11 +74,13 @@ Sudėtinga logika paslėpta už paprastų metodų:
 
  2.3 Kompozicija ir agregacija
 Kompozicija
+
 Veikėjas turi statistiką ir inventorių:
 self.stats = Stats()
 self.inventory = Inventory()
 Šie objektai neegzistuoja be veikėjo.
 Agregacija
+
 Gebėjimai egzistuoja atskirai, bet gali būti priskirti veikėjui:
 self.abilities.append(ability)
  
@@ -88,7 +90,9 @@ Kodėl pasirinktas šis šablonas?
 •	leidžia centralizuoti veikėjų kūrimą
 •	palengvina programos plėtrą
 •	atskiria kūrimo logiką nuo pagrindinio kodo
+
 Pavyzdys:
+
 class CharacterFactory:
     @staticmethod
     def create_character(name, char_class, history):
@@ -100,6 +104,7 @@ Išsaugojimas:
 with open(Storage.FILE, "a", newline="") as f:
     writer = csv.writer(f)
 Įkėlimas:
+
 reader = csv.reader(f)
  
  2.6 Testavimas
